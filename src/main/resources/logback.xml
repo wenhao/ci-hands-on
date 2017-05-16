@@ -32,8 +32,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.github.wenhao.service" level="DEBUG" additivity="false">
-        <appender-ref ref="REMOTE_CALL_DEBUG"/>
+    <logger name="com.github.wenhao.spring.LoggingRequestInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="REMOTE_CALL_DEBUG" />
     </logger>
 
     <root level="${ROOT_LEVEL}">

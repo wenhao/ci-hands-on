@@ -16,4 +16,5 @@ public class BeanConfiguration
         restTemplate.setInterceptors(ImmutableList.of(new LoggingRequestInterceptor()));
         return restTemplate;
     }
+
 }

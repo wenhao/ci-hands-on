@@ -7,17 +7,20 @@ public abstract class BaseMapper
 {
     protected final MapperFactory mapperFactory;
 
-    protected BaseMapper() {
+    protected BaseMapper()
+    {
         mapperFactory = new DefaultMapperFactory.Builder().build();
     }
 
-    protected void register(Class<?> typeA, Class<?> typeB) {
+    protected void register(Class<?> typeA, Class<?> typeB)
+    {
         mapperFactory.classMap(typeA, typeB)
-                .byDefault()
-                .register();
+            .byDefault()
+            .register();
     }
 
-    public <T> T map(Object obj, Class<T> targetType) {
+    public <T> T map(Object obj, Class<T> targetType)
+    {
         return mapperFactory.getMapperFacade().map(obj, targetType);
     }
 }

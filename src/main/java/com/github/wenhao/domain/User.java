@@ -11,43 +11,53 @@ public class User
     private String homepage;
     private String icon;
 
-    public String getId() {
+    public String getId()
+    {
         return id;
     }
 
-    public void setId(final String id) {
+    public void setId(final String id)
+    {
         this.id = id;
     }
 
-    public String getUid() {
+    public String getUid()
+    {
         return uid;
     }
 
-    public void setUid(final String uid) {
+    public void setUid(final String uid)
+    {
         this.uid = uid;
     }
 
-    public String getTitle() {
+    public String getTitle()
+    {
         return title;
     }
 
-    public void setTitle(final String title) {
+    public void setTitle(final String title)
+    {
         this.title = title;
     }
 
-    public String getHomepage() {
+    public String getHomepage()
+    {
         return homepage;
     }
 
-    public void setHomepage(final String homepage) {
+    public void setHomepage(final String homepage)
+    {
         this.homepage = homepage;
     }
 
-    public String getIcon() {
+    public String getIcon()
+    {
         return icon;
     }
 
-    public void setIcon(final String icon) {
+    public void setIcon(final String icon)
+    {
         this.icon = icon;
     }
 }
