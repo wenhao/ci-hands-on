@@ -9,6 +9,7 @@
 
 package com.github.wenhao.functional;
 
+import com.github.wenhao.helper.RemoteConfigHelper;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -19,9 +20,11 @@ public class UserApiFunctionalTest
     @Test
     public void should_get_user_information()
     {
+        String url = RemoteConfigHelper.getInstance().get("douban-user-get-url");
+
         given().
         when().
-            get("http://localhost:8080/users/ahbei").
+            get(url + "ahbei").
         then().
             body("title", equalTo("阿北"));
     }

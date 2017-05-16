@@ -250,6 +250,9 @@
                             <includes>
                                 <include>**/*FunctionalTest.java</include>
                             </includes>
+                            <additionalClasspathElements>
+                                <additionalClasspathElement>${basedir}/envs/dev</additionalClasspathElement>
+                            </additionalClasspathElements>
                         </configuration>
                     </plugin>
                     <plugin>
