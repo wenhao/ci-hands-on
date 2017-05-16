@@ -19,3 +19,8 @@ Continuous Integration Practice
 8. 配置手动部署测试环境
 9. 搭建部署流水线：build(构建)、integration-test(集成测试)、deploy-dev(部署-只准备部署的包不实际部署)、functional-test(功能测试)、deploy-test(手动部署)
 10. 优化jenkins job，避免占用太多磁盘空间
+
+
+### 注意事项
+
+1. spring boot的外置配置文件可以通过--spring.config.location方式读取。

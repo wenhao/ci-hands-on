@@ -23,9 +23,7 @@
         <jacoco-maven-plugin.minimum>0.80</jacoco-maven-plugin.minimum>
         <springfox.version>2.6.1</springfox.version>
         <maven-failsafe-plugin.version>2.20</maven-failsafe-plugin.version>
-
-        <skipUnitTest>false</skipUnitTest>
-        <skipIntegrationTest>true</skipIntegrationTest>
+        <maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
     </properties>
 
     <dependencies>
@@ -155,6 +153,28 @@
                                 </rule>
                             </rules>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${basedir}/config/assembly/local-config.xml</descriptor>
+                        <descriptor>${basedir}/config/assembly/dev-config.xml</descriptor>
+                        <descriptor>${basedir}/config/assembly/test-config.xml</descriptor>
+                        <descriptor>${basedir}/config/assembly/prod-config.xml</descriptor>
+                    </descriptors>
+                    <finalName>env</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>envs</id>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <phase>package</phase>
                     </execution>
                 </executions>
             </plugin>
