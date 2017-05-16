@@ -11,7 +11,8 @@ import org.springframework.web.client.RestTemplate;
 public class BeanConfiguration
 {
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    public RestTemplate restTemplate(RestTemplateBuilder builder)
+    {
         RestTemplate restTemplate = builder.build();
         restTemplate.setInterceptors(ImmutableList.of(new LoggingRequestInterceptor()));
         return restTemplate;

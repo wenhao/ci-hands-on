@@ -23,13 +23,15 @@ public class UserApi
     private UserMapper userMapper;
 
     @Autowired
-    public UserApi(final UserRemoteService userRemoteService, final UserMapper userMapper) {
+    public UserApi(final UserRemoteService userRemoteService, final UserMapper userMapper)
+    {
         this.userRemoteService = userRemoteService;
         this.userMapper = userMapper;
     }
 
     @RequestMapping(value = "/user_id", method = GET)
-    public ResponseEntity<UserView> get(@PathVariable("user_id") final String userId) {
+    public ResponseEntity<UserView> get(@PathVariable("user_id") final String userId)
+    {
         Optional<User> userOptional = userRemoteService.get(userId);
         if (userOptional.isPresent()) {
             UserView userView = userMapper.map(userOptional.get(), UserView.class);

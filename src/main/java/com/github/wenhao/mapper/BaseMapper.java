@@ -5,7 +5,7 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 
 public abstract class BaseMapper
 {
-    protected final MapperFactory mapperFactory;
+    private final MapperFactory mapperFactory;
 
     protected BaseMapper()
     {

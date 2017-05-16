@@ -124,7 +124,6 @@
         </module>
         <module name="InnerAssignment" />
         <module name="MissingSwitchDefault" />
-        <module name="RedundantThrows" />
         <module name="SimplifyBooleanReturn" />
         <module name="StringLiteralEquality" />
         <module name="NestedIfDepth" >
@@ -136,7 +135,6 @@
         <module name="SuperClone"/>
         <module name="SuperFinalize" />
         <!--<module name="PackageDeclaration" />-->
-        <module name="JUnitTestCase" />
         <module name="ReturnCount" >
             <property name="max" value="2"/>
         </module>

@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 public class UserMapper extends BaseMapper
 {
 
-    public UserMapper() {
+    public UserMapper()
+    {
         register(User.class, UserView.class);
     }
 }

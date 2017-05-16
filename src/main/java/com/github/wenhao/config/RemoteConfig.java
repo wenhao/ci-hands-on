@@ -11,11 +11,13 @@ public class RemoteConfig
 {
     private String doubanUserGetUrl;
 
-    public String getDoubanUserGetUrl() {
+    public String getDoubanUserGetUrl()
+    {
         return doubanUserGetUrl;
     }
 
-    public void setDoubanUserGetUrl(final String doubanUserGetUrl) {
+    public void setDoubanUserGetUrl(final String doubanUserGetUrl)
+    {
         this.doubanUserGetUrl = doubanUserGetUrl;
     }
 

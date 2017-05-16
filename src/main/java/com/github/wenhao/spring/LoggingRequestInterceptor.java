@@ -12,36 +12,37 @@ import java.io.IOException;
 
 public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor
 {
-    private static final Logger log = LoggerFactory.getLogger(LoggingRequestInterceptor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoggingRequestInterceptor.class);
 
     @Override
-    public ClientHttpResponse intercept(final HttpRequest httpRequest, final byte[] bytes, final ClientHttpRequestExecution clientHttpRequestExecution) throws IOException
+    public ClientHttpResponse intercept(final HttpRequest httpRequest, final byte[] bytes,
+                                        final ClientHttpRequestExecution clientHttpRequestExecution) throws IOException
     {
-        log.debug("#################################### LoggingRequestInterceptor Start ###################################");
+        LOG.debug("################################ LoggingRequestInterceptor Start #################################");
         traceRequest(httpRequest, bytes);
         ClientHttpResponse response = clientHttpRequestExecution.execute(httpRequest, bytes);
         traceResponse(response);
-        log.debug("#################################### LoggingRequestInterceptor End #####################################");
+        LOG.debug("################################ LoggingRequestInterceptor End ###################################");
         return response;
     }
 
     private void traceRequest(HttpRequest request, byte[] body) throws IOException
     {
-        log.debug("### Request ###");
-        log.debug("URI : " + request.getURI());
-        log.debug("Method : " + request.getMethod());
-        log.debug("Headers : " + request.getHeaders());
+        LOG.debug("### Request ###");
+        LOG.debug("URI : " + request.getURI());
+        LOG.debug("Method : " + request.getMethod());
+        LOG.debug("Headers : " + request.getHeaders());
         if (request.getMethod().equals(HttpMethod.GET)) {
             return;
         }
-        log.debug("Request Body : " + new String(body, "UTF-8"));
+        LOG.debug("Request Body : " + new String(body, "UTF-8"));
     }
 
     private void traceResponse(ClientHttpResponse response) throws IOException
     {
-        log.debug("### Response ###");
-        log.debug("Status code: " + response.getStatusCode());
-        log.debug("Status text: " + response.getStatusText());
-        log.debug("Headers : " + response.getHeaders());
+        LOG.debug("### Response ###");
+        LOG.debug("Status code: " + response.getStatusCode());
+        LOG.debug("Status text: " + response.getStatusText());
+        LOG.debug("Headers : " + response.getHeaders());
     }
 }

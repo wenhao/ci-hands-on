@@ -30,7 +30,8 @@ public class UserApiTest
     private UserMapper userMapper;
 
     @Test
-    public void should_get_user_information() {
+    public void should_get_user_information()
+    {
         // given
         String userId = "ahbei";
         User user = new User();
@@ -45,7 +46,8 @@ public class UserApiTest
     }
 
     @Test
-    public void should_get_not_found_error_when_user_id_not_exist() {
+    public void should_get_not_found_error_when_user_id_not_exist()
+    {
         // given
         String userId = "not-exist-user";
         when(userRemoteService.get(userId)).thenReturn(Optional.empty());

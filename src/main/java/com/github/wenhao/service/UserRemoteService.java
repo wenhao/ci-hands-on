@@ -25,7 +25,8 @@ public class UserRemoteService
 
     public Optional<User> get(final String userId)
     {
-        ResponseEntity<User> response = restTemplate.getForEntity(remoteConfig.getDoubanUserGetUrl() + userId, User.class);
+        String url = remoteConfig.getDoubanUserGetUrl() + userId;
+        ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
         if (response.getStatusCode().equals(HttpStatus.OK)) {
             return Optional.ofNullable(response.getBody());
         }
