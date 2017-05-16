@@ -21,13 +21,13 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor
         traceRequest(httpRequest, bytes);
         ClientHttpResponse response = clientHttpRequestExecution.execute(httpRequest, bytes);
         traceResponse(response);
-        log.debug("#################################### LoggingRequestInterceptor End ###################################");
+        log.debug("#################################### LoggingRequestInterceptor End #####################################");
         return response;
     }
 
     private void traceRequest(HttpRequest request, byte[] body) throws IOException
     {
-        log.debug("=========================== Tracing request ================================================");
+        log.debug("### Request ###");
         log.debug("URI : " + request.getURI());
         log.debug("Method : " + request.getMethod());
         log.debug("Headers : " + request.getHeaders());
@@ -39,7 +39,7 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor
 
     private void traceResponse(ClientHttpResponse response) throws IOException
     {
-        log.debug("=========================== Tracing Response =============================================");
+        log.debug("### Response ###");
         log.debug("Status code: " + response.getStatusCode());
         log.debug("Status text: " + response.getStatusText());
         log.debug("Headers : " + response.getHeaders());

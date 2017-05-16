@@ -7,6 +7,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
@@ -29,7 +31,7 @@ public class UserRemoteServiceTest
         // given
         final String userId = "ahbei";
         when(remoteConfig.getDoubanUserGetUrl()).thenReturn("user/");
-        when(restTemplate.getForObject("user/ahbei", User.class)).thenReturn(new User());
+        when(restTemplate.getForEntity("user/ahbei", User.class)).thenReturn(ResponseEntity.ok(new User()));
 
         // when
         Optional<User> userOptional = userRemoteService.get(userId);
@@ -43,7 +45,7 @@ public class UserRemoteServiceTest
         // given
         final String userId = "ahbei";
         when(remoteConfig.getDoubanUserGetUrl()).thenReturn("user/");
-        when(restTemplate.getForObject("user/ahbei", User.class)).thenReturn(null);
+        when(restTemplate.getForEntity("user/ahbei", User.class)).thenReturn(ResponseEntity.notFound().build());
 
         // when
         Optional<User> userOptional = userRemoteService.get(userId);

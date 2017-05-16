@@ -2,6 +2,7 @@ package com.github.wenhao.api;
 
 import com.github.wenhao.api.view.UserView;
 import com.github.wenhao.domain.User;
+import com.github.wenhao.mapper.UserMapper;
 import com.github.wenhao.service.UserRemoteService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,12 +26,16 @@ public class UserApiTest
     private UserApi userApi;
     @Mock
     private UserRemoteService userRemoteService;
+    @Mock
+    private UserMapper userMapper;
 
     @Test
     public void should_get_user_information() {
         // given
         String userId = "ahbei";
-        when(userRemoteService.get(userId)).thenReturn(Optional.of(new User()));
+        User user = new User();
+        when(userRemoteService.get(userId)).thenReturn(Optional.of(user));
+        when(userMapper.map(user, UserView.class)).thenReturn(new UserView());
 
         // when
         ResponseEntity<UserView> response = userApi.get(userId);
