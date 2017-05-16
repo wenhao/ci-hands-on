@@ -23,4 +23,5 @@ Continuous Integration Practice
 
 ### 注意事项
 
+1. 在Intellij中运行程序需要先把envs/local设置Mark Directory as->Resources Root。
 1. spring boot的外置配置文件可以通过--spring.config.location方式读取。

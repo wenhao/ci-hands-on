@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <contextName>member</contextName>
+    <property name="LOGGER_HOME" value="./logs"/>
+    <property name="LOGGER_NAME" value="ci-hands-on"/>
+    <property name="ROOT_LEVEL" value="debug"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}][%thread]:[%-5level] [%logger{0}][%L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="REMOTE_CALL_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGGER_HOME}/${LOGGER_NAME}_remote_call_debug.log</file>
+        <prudent>false</prudent>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOGGER_HOME}/${LOGGER_NAME}_remote_call_debug.log.%d{yyyy-MM-dd}.%i.log.gz
+            </FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.github.wenhao.spring.LoggingRequestInterceptor" level="DEBUG" additivity="false">
+        <appender-ref ref="REMOTE_CALL_DEBUG" />
+    </logger>
+
+    <root level="${ROOT_LEVEL}">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

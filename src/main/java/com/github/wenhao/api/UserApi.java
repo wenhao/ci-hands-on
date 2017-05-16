@@ -29,7 +29,7 @@ public class UserApi
         this.userMapper = userMapper;
     }
 
-    @RequestMapping(value = "/user_id", method = GET)
+    @RequestMapping(value = "/{user_id}", method = GET)
     public ResponseEntity<UserView> get(@PathVariable("user_id") final String userId)
     {
         Optional<User> userOptional = userRemoteService.get(userId);
