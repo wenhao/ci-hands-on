@@ -24,4 +24,12 @@ Continuous Integration Practice
 ### 注意事项
 
 1. 在Intellij中运行程序需要先把envs/local设置Mark Directory as->Resources Root，如果运行还是报错，在local->remote.properties右键Recompile。
-1. spring boot的外置配置文件可以通过--spring.config.location方式读取。
+2. spring boot的外置配置文件可以通过--spring.config.location方式读取。
+3. jenkins需要搭建在本地，需要提前下载jenkins: http://mirrors.jenkins.io/war-stable/latest/jenkins.war。
+4. 安装jenkins：java -jar jenkins.war。确保所有的初始化插件都已安装成功。
+5. 安装maven，确保在jenkins中能够执行mvn命令，并设置Java_HOME环境变量。
+6. 安装jenkins插件：
+    * Clone Workspace SCM Plug-in
+    * Copy Artifact Plugin
+    * Build Pipeline Plugin
+    * JaCoCo plugin
