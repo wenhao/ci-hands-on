@@ -33,3 +33,16 @@ Continuous Integration Practice
     * Copy Artifact Plugin
     * Build Pipeline Plugin
     * JaCoCo plugin
+    
+### 步骤
+    
+1. 构建job
+   ![ci-hands-on-build](docs/images/ci-hands-on-build.png)
+2. 集成测试job
+   ![ci-hands-on-integration-test](docs/images/ci-hands-on-integration-test.png)
+3. 部署开发环境
+   ![ci-hands-on-deploy-dev](docs/images/ci-hands-on-deploy-dev.png)
+4. 功能测试(如果时间比较短可入纳入构建job)
+   ![ci-hands-on-functional-test](docs/images/ci-hands-on-functional-test.png)
+5. 部署测试环境
+   ![ci-hands-on-deploy-test](docs/images/ci-hands-on-deploy-test.png)
